@@ -1,6 +1,6 @@
 {
   "name": "@eqho10/eqho-aios",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "AI-Orchestrated Full-Stack Development Framework",
   "type": "module",
   "main": "dist/index.js",
@@ -18,7 +18,16 @@
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["ai", "cli", "development", "framework", "claude", "anthropic", "agents", "orchestration"],
+  "keywords": [
+    "ai",
+    "cli",
+    "development",
+    "framework",
+    "claude",
+    "anthropic",
+    "agents",
+    "orchestration"
+  ],
   "author": "Ekrem Mutlu <eqho10@gmail.com>",
   "license": "MIT",
   "repository": {
