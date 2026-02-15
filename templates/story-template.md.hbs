@@ -1,0 +1,51 @@
+---
+id: "{{id}}"
+title: "{{title}}"
+status: "draft"
+priority: "{{priority}}"
+phase: ""
+current_agent: null
+agents_completed: []
+created: "{{created}}"
+{{#if tags}}tags: [{{#each tags}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}]{{/if}}
+estimated_tokens: 0
+actual_tokens: 0
+---
+
+## User Story
+
+**Baslik:** {{title}}
+
+**Aciklama:**
+<!-- Kullanici hikayesini buraya yazin -->
+As a [user type], I want [goal] so that [benefit].
+
+## Kabul Kriterleri
+
+- [ ] Kriter 1
+- [ ] Kriter 2
+- [ ] Kriter 3
+
+## Teknik Notlar
+
+<!-- Teknik detaylar, bagimlilklar, dikkat edilecek noktalar -->
+
+## Analyst Ciktisi
+
+<!-- analyst agent tarafindan doldurulacak -->
+
+## Architect Ciktisi
+
+<!-- architect agent tarafindan doldurulacak -->
+
+## Scrum Master Ciktisi
+
+<!-- scrum_master agent tarafindan doldurulacak -->
+
+## Developer Ciktisi
+
+<!-- developer agent tarafindan doldurulacak -->
+
+## QA Ciktisi
+
+<!-- qa agent tarafindan doldurulacak -->

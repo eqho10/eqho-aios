@@ -1,0 +1,43 @@
+project:
+  name: "{{projectName}}"
+  language: "tr"
+  {{#if framework}}framework: "{{framework}}"{{/if}}
+  description: ""
+
+llm:
+  provider: "anthropic"
+  model: "claude-sonnet-4-5-20250929"
+  api_key_env: "ANTHROPIC_API_KEY"
+  max_tokens: 8192
+  temperature: 0.3
+
+agents:
+  analyst: { enabled: true }
+  architect: { enabled: true }
+  developer: { enabled: true }
+  qa: { enabled: true }
+  scrum_master: { enabled: true }
+
+orchestration:
+  planning_agents: ["analyst", "architect", "scrum_master"]
+  development_agents: ["scrum_master", "developer", "qa"]
+  auto_approve: false
+  context_window: 3
+  max_qa_retries: 2
+
+integrations:
+  telegram:
+    enabled: false
+    bot_token_env: "TELEGRAM_BOT_TOKEN"
+    chat_id: ""
+  n8n:
+    enabled: false
+    webhook_url: ""
+  eqhomemory:
+    enabled: false
+    server_url: "http://100.91.162.51:7890"
+
+paths:
+  stories: "docs/stories"
+  context: ".eqho-aios/context"
+  history: ".eqho-aios/history"
