@@ -1,5 +1,5 @@
 {
-  "name": "eqho-aios",
+  "name": "@eqho10/eqho-aios",
   "version": "0.1.0",
   "description": "AI-Orchestrated Full-Stack Development Framework",
   "type": "module",
@@ -24,6 +24,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/eqho10/eqho-aios"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "files": [
     "dist",
