@@ -16,8 +16,8 @@ const ConfigSchema = z.object({
     description: z.string().optional(),
   }),
   llm: z.object({
-    provider: z.literal('anthropic').default('anthropic'),
-    model: z.string().default('claude-sonnet-4-5-20250929'),
+    provider: z.enum(['anthropic', 'claude-cli']).default('claude-cli'),
+    model: z.string().default('sonnet'),
     api_key_env: z.string().default('ANTHROPIC_API_KEY'),
     max_tokens: z.number().default(8192),
     temperature: z.number().default(0.3),
@@ -75,13 +75,16 @@ export async function loadConfig(projectDir?: string): Promise<EqhoConfig> {
   const parsed = parseYaml<unknown>(raw);
   const validated = ConfigSchema.parse(parsed);
 
-  // Validate API key exists in environment
-  const apiKey = process.env[validated.llm.api_key_env];
-  if (!apiKey) {
-    throw new Error(
-      `API key bulunamadi: ${validated.llm.api_key_env} ortam degiskeni tanimli degil.\n` +
-      `export ${validated.llm.api_key_env}=sk-ant-...`
-    );
+  // Validate API key exists in environment (only for anthropic provider)
+  if (validated.llm.provider === 'anthropic') {
+    const apiKey = process.env[validated.llm.api_key_env];
+    if (!apiKey) {
+      throw new Error(
+        `API key bulunamadi: ${validated.llm.api_key_env} ortam degiskeni tanimli degil.\n` +
+        `export ${validated.llm.api_key_env}=sk-ant-...\n` +
+        `Alternatif: config.yaml'da provider: "claude-cli" olarak degistirin.`
+      );
+    }
   }
 
   return validated as EqhoConfig;

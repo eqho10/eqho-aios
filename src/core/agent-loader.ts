@@ -99,7 +99,8 @@ function parseAgentMarkdown(name: AgentName, content: string): AgentPrompt {
  * Resolves the path to the bundled agents directory (agents/ at package root).
  */
 function getBundledAgentPath(filename: string): string {
-  const bundledUrl = new URL(`../../agents/${filename}`, import.meta.url);
+  // import.meta.url is at dist/src/core/agent-loader.js → go up 3 levels to package root
+  const bundledUrl = new URL(`../../../agents/${filename}`, import.meta.url);
   return fileURLToPath(bundledUrl);
 }
 

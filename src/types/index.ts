@@ -13,7 +13,7 @@ export interface ProjectConfig {
 }
 
 export interface LLMConfig {
-  provider: 'anthropic';
+  provider: 'anthropic' | 'claude-cli';
   model: string;
   api_key_env: string;
   max_tokens: number;
