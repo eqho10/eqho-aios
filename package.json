@@ -25,6 +25,13 @@
     "type": "git",
     "url": "https://github.com/eqho10/eqho-aios"
   },
+  "files": [
+    "dist",
+    "agents",
+    "templates",
+    "README.md",
+    "README.tr.md"
+  ],
   "engines": {
     "node": ">=18.0.0"
   },
